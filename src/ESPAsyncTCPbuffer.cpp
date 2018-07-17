@@ -32,7 +32,7 @@
 AsyncTCPbuffer::AsyncTCPbuffer(AsyncClient* client) {
     if(client == NULL) {
         DEBUG_ASYNC_TCP("[A-TCP] client is null!!!\n");
-        panic();
+        abort();
     }
 
     _client = client;
@@ -125,7 +125,7 @@ size_t AsyncTCPbuffer::write(const uint8_t *data, size_t len) {
 
             if(next == NULL) {
                 DEBUG_ASYNC_TCP("[A-TCP] run out of Heap!\n");
-                panic();
+                abort();
             } else {
                 DEBUG_ASYNC_TCP("[A-TCP] new cbuf\n");
             }
